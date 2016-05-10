@@ -220,12 +220,12 @@ class MarkupGenerator {
         return content;
       }).join('');
       let entity = entityKey ? Entity.get(entityKey) : null;
-      if (entity != null && entity.getType() === ENTITY_TYPE.LINK) {
+      if (entity != null && entity.getType().toLowerCase() === ENTITY_TYPE.LINK.toLowerCase()) {
         let data = entity.getData();
         let url = data.url || '';
         let title = data.title ? ` "${escapeTitle(data.title)}"` : '';
         return `[${content}](${encodeURL(url)}${title})`;
-      } else if (entity != null && entity.getType() === ENTITY_TYPE.IMAGE) {
+      } else if (entity != null && entity.getType().toLowerCase() === _draftJsUtils.ENTITY_TYPE.IMAGE.toLowerCase()) {
         let data = entity.getData();
         let src = data.src || '';
         let alt = data.alt ? ` "${escapeTitle(data.alt)}"` : '';
