@@ -225,7 +225,7 @@ class MarkupGenerator {
         let url = data.url || '';
         let title = data.title ? ` "${escapeTitle(data.title)}"` : '';
         return `[${content}](${encodeURL(url)}${title})`;
-      } else if (entity != null && entity.getType().toLowerCase() === _draftJsUtils.ENTITY_TYPE.IMAGE.toLowerCase()) {
+      } else if (entity != null && entity.getType().toLowerCase() === ENTITY_TYPE.IMAGE.toLowerCase()) {
         let data = entity.getData();
         let src = data.src || '';
         let alt = data.alt ? ` "${escapeTitle(data.alt)}"` : '';
